@@ -17,7 +17,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping("/createcategory")
+    @PostMapping("/category")
     public ResponseEntity create(@RequestBody Category category) {
         Category category1 = categoryService.save(category);
         return ResponseEntity.ok(category1);

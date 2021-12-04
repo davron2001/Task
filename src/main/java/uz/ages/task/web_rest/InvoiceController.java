@@ -1,12 +1,11 @@
 package uz.ages.task.web_rest;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.ages.task.entity.Invoice;
 import uz.ages.task.service.InvoiceService;
+
+import java.util.List;
 
 
 @RestController
@@ -22,5 +21,11 @@ public class InvoiceController {
     public ResponseEntity create(@RequestBody Invoice invoice) {
         Invoice invoice1 = invoiceService.save(invoice);
         return ResponseEntity.ok(invoice1);
+    }
+
+    @GetMapping("/invoiceAll")
+    public ResponseEntity getAll(){
+        List<Invoice> invoices = invoiceService.findAll();
+        return ResponseEntity.ok(invoices);
     }
 }

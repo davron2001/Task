@@ -1,5 +1,6 @@
 package uz.ages.task.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,9 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.DETACH)
     private Set<Order> orders;
 
     @Column(name = "name", nullable = false, length = 14)
@@ -31,7 +33,7 @@ public class Customer implements Serializable {
     private String country;
 
     @Column(name = "text")
-    private String text;
+    private String address;
 
     @Column(name = "phone", length = 50)
     private String phone;

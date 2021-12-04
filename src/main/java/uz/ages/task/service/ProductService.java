@@ -5,6 +5,8 @@ import uz.ages.task.entity.Order;
 import uz.ages.task.entity.Product;
 import uz.ages.task.repository.ProductRepository;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
@@ -15,5 +17,9 @@ public class ProductService {
 
     public Product save(Product product) {
         return productRepository.save(product);
+    }
+
+    public List<Product> findAll(){
+        return productRepository.findAll();
     }
 }

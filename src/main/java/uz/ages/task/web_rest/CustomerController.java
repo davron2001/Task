@@ -1,12 +1,12 @@
 package uz.ages.task.web_rest;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import uz.ages.task.entity.Category;
 import uz.ages.task.entity.Customer;
 import uz.ages.task.service.CustomerService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/get")
@@ -17,9 +17,15 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/customers")
+    @PostMapping("/customer")
     public ResponseEntity create(@RequestBody Customer customer) {
         Customer customer1 = customerService.save(customer);
         return ResponseEntity.ok(customer1);
+    }
+
+    @GetMapping("/customerAll")
+    public ResponseEntity getAll() {
+        List<Customer> categoryList = customerService.findAll();
+        return ResponseEntity.ok(categoryList);
     }
 }
