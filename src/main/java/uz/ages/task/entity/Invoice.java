@@ -19,7 +19,7 @@ public class Invoice {
     private Integer id;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ord_id")
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @Column(name = "amount", nullable = false, precision = 5, scale = 4)

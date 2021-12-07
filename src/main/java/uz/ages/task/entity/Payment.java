@@ -28,6 +28,6 @@ public class Payment {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "inv_id", nullable = false)
+    @JoinColumn(name = "invoice_id", nullable = false)
     private Invoice invoice;
 }

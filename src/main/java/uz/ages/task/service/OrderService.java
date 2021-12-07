@@ -1,11 +1,11 @@
 package uz.ages.task.service;
 
 import org.springframework.stereotype.Service;
-import uz.ages.task.entity.Customer;
 import uz.ages.task.entity.Order;
 import uz.ages.task.repository.OrderRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -21,5 +21,9 @@ public class OrderService {
 
     public List<Order> findAll(){
         return orderRepository.findAll();
+    }
+
+    public Optional<Order> findById(Integer id){
+        return orderRepository.findById(id);
     }
 }

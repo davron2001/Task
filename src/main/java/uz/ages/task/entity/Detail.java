@@ -21,12 +21,12 @@ public class Detail {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ord_id")
+    @JoinColumn(name = "order_id")
     private Order order;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pr_id")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @Column(columnDefinition = "SMALLINT", nullable = false)

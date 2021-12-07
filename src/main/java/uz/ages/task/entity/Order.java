@@ -6,8 +6,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "orders")
+@Entity(name="my_order")
+@Table(name = "my_order")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,7 +25,7 @@ public class Order {
 
     @JsonIgnore
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "cust_id", nullable = false, updatable = false)
+    @JoinColumn(name = "customer_id", nullable = false, updatable = false)
     private Customer customer;
 
 }

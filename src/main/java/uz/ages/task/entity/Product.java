@@ -18,7 +18,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name", length = 10, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
 
     @JsonIgnore
@@ -26,7 +26,7 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(name = "description", length = 20)
+    @Column(name = "description", length = 500)
     private String description;
 
     @Column(name = "price", nullable = false, precision = 5, scale = 4)

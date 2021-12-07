@@ -6,6 +6,7 @@ import uz.ages.task.entity.Order;
 import uz.ages.task.service.OrderService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/get")
@@ -27,4 +28,10 @@ public class OrderController {
         List<Order> orderList = orderService.findAll();
         return ResponseEntity.ok(orderList);
     }
+
+//    @GetMapping("/orderId/{id}")
+//    public ResponseEntity findByProductId(@RequestParam(name = "order_id") Integer id) {
+//        Optional<Order> ordersId = orderService.findById(id);
+//        return ResponseEntity.ok(ordersId);
+//    }
 }
